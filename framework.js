@@ -37,6 +37,13 @@ const cameraPage = document.querySelector("div#camera_page");
     mainPage.style.display = "none";
     cameraPage.style.display = "block";
     getVideo();
+    video.addEventListener('canplay', paintToCanvas);
+  });
+
+  canvas.addEventListener('click', function (e) {
+    mainPage.style.display = "block";
+    mainPageMenu.style.display = "none"
+    cameraPage.style.display = "none";
   });
 })();
 
