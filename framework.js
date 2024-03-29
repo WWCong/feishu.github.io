@@ -19,7 +19,7 @@ function show(page) {
 }
 
 (function () {
-  // show(pages.qestionPage);
+  show(pages.cameraPage);
   pages.mainPage.addEventListener("click", function (e) {
     let width = 1178,
       height = 2375;
