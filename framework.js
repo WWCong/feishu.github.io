@@ -16,10 +16,11 @@ function show(page) {
       pages[key].style.display = "none";
     }
   }
+  video.pause();
 }
 
 (function () {
-  show(pages.cameraPage);
+  // show(pages.cameraPage);
   pages.mainPage.addEventListener("click", function (e) {
     let width = 1178,
       height = 2375;
@@ -48,10 +49,10 @@ function show(page) {
     // console.log(e);
   });
 
+  video.addEventListener("canplay", paintToCanvas);
   pages.mainPageMenu.addEventListener("click", function (e) {
     show(pages.cameraPage);
     getVideo();
-    video.addEventListener("canplay", paintToCanvas);
   });
 
   canvas.addEventListener("click", function (e) {
