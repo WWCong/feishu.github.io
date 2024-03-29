@@ -2,22 +2,105 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no"
+    />
     <meta name="apple-mobile-web-app-title" content="飞书" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <title>Get User Media Code Along!</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <div id="quesionnaire" class="full">
+      <div class="toolbar"></div>
+      <div class="q-container">
+        <div class="q-header">领餐请扫码午晚餐</div>
+        <div class="q-label">
+          <div class="q-label-require">*</div>
+          领取类别
+        </div>
+        <label class="q-radio-box"
+          >为本人领取
+          <input type="radio" name="receive-kind" />
+          <span class="q-checkmark"></span>
+        </label>
+        <label class="q-radio-box"
+          >为其他同学领取
+          <input type="radio" name="receive-kind" />
+          <span class="q-checkmark"></span>
+        </label>
+        <label class="q-radio-box"
+          >为外部访客领取
+          <input type="radio" name="receive-kind" />
+          <span class="q-checkmark"></span>
+        </label>
+        <div class="q-label">
+          <div class="q-label-require">*</div>
+          领取份数
+        </div>
+        <label class="q-radio-box"
+          >1
+          <input type="radio" name="receive-cnt" />
+          <span class="q-checkmark"></span>
+        </label>
+        <label class="q-radio-box"
+          >2
+          <input type="radio" name="receive-cnt" />
+          <span class="q-checkmark"></span>
+        </label>
+        <label class="q-radio-box"
+          >3
+          <input type="radio" name="receive-cnt" />
+          <span class="q-checkmark"></span>
+        </label>
+        <label class="q-radio-box"
+          >4
+          <input type="radio" name="receive-cnt" />
+          <span class="q-checkmark"></span>
+        </label>
+        <label class="q-radio-box"
+          >5
+          <input type="radio" name="receive-cnt" />
+          <span class="q-checkmark"></span>
+        </label>
+        <label class="q-radio-box"
+          >其他
+          <input type="radio" name="receive-cnt" />
+          <span class="q-checkmark"></span>
+        </label>
+        <div class="q-label">
+          <div class="q-label-require"></div>
+          如有好的意见或建议欢迎反馈！
+        </div>
+        <textarea placeholder="请输入"></textarea>
+        <button class="q-submit">提交</button>
+        <div class="q-footer-box"><div class="q-footer"></div></div>
+      </div>
+    </div>
+
+    <div id="quesionnaire-done" class="full">
+      <div class="toolbar"></div>
+      <div class="q-container">
+        <div class="q-success-box">
+          <div class="q-success"></div>
+        </div>
+        <button class="q-done">完成</button>
+      </div>
+    </div>
+
     <div id="main_page" class="full">
       <div id="bg" class="full"></div>
       <div id="menu"></div>
     </div>
 
     <div id="camera_page" class="full">
-        <video class="player hidden"></video>
-        <canvas class="photo" class="full"></video>
+      <video class="player hidden"></video>
+      <canvas class="photo" class="full"></canvas>
     </div>
 
     <script src="./camera.js"></script>

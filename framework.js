@@ -1,11 +1,26 @@
-const mainPage = document.querySelector("div#main_page");
-const mainPageMenu = document.querySelector("div#menu");
-const cameraPage = document.querySelector("div#camera_page");
+const pages = {
+  mainPage: document.querySelector("div#main_page"),
+  mainPageMenu: document.querySelector("div#menu"),
+  cameraPage: document.querySelector("div#camera_page"),
+  qestionPage: document.querySelector("div#quesionnaire"),
+  donePage: document.querySelector("div#quesionnaire-done"),
+};
+const submitBtn = document.querySelector(".q-submit");
+const doneBtn = document.querySelector(".q-done");
+
+function show(page) {
+  for (let key in pages) {
+    if (key === page || page === pages[key]) {
+      pages[key].style.display = "block";
+    } else {
+      pages[key].style.display = "none";
+    }
+  }
+}
 
 (function () {
-  cameraPage.style.display = "none";
-
-  mainPage.addEventListener("click", function (e) {
+  // show(pages.qestionPage);
+  pages.mainPage.addEventListener("click", function (e) {
     let width = 1178,
       height = 2375;
     let targetX = 1083,
@@ -24,26 +39,31 @@ const cameraPage = document.querySelector("div#camera_page");
       targetTop <= curY &&
       curY <= targetBottom
     ) {
-        mainPageMenu.style.display = "block";
+      pages.mainPageMenu.style.display = "block";
     } else {
-      mainPageMenu.style.display = "none";
+      pages.mainPageMenu.style.display = "none";
     }
     // console.log(curX, curY);
     // console.log(targetLeft, targetRight, targetTop, targetBottom);
     // console.log(e);
   });
 
-  mainPageMenu.addEventListener("click", function (e) {
-    mainPage.style.display = "none";
-    cameraPage.style.display = "block";
+  pages.mainPageMenu.addEventListener("click", function (e) {
+    show(pages.cameraPage);
     getVideo();
-    video.addEventListener('canplay', paintToCanvas);
+    video.addEventListener("canplay", paintToCanvas);
   });
 
-  canvas.addEventListener('click', function (e) {
-    mainPage.style.display = "block";
-    mainPageMenu.style.display = "none"
-    cameraPage.style.display = "none";
+  canvas.addEventListener("click", function (e) {
+    show(pages.qestionPage);
+  });
+
+  submitBtn.addEventListener("click", function (e) {
+    show(pages.donePage);
+  });
+
+  doneBtn.addEventListener("click", function (e) {
+    show(pages.mainPage);
   });
 })();
 

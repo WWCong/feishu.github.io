@@ -43,8 +43,8 @@ function getVideo() {
 }
 
 function paintToCanvas() {
-  const width = cameraPage.clientWidth;
-  const height = cameraPage.clientHeight;
+  const width = pages.cameraPage.clientWidth;
+  const height = pages.cameraPage.clientHeight;
   canvas.width = width;
   canvas.height = height;
 

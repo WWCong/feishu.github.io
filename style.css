@@ -1,30 +1,180 @@
 body {
-    margin: 0px;
+  margin: 0px;
+}
+
+.toolbar {
+  background: url(./toolbar.PNG);
+  background-size: 100% 100%;
+  height: 43px;
+}
+
+#quesionnaire,
+#quesionnaire-done,
+#camera_page {
+  display: none;
+}
+
+.q-container {
+  height: calc(100% - 43px);
+  padding: 25px;
+  overflow: scroll;
+}
+
+.q-header {
+  font-size: x-large;
+  font-weight: 400;
+  text-align: center;
+}
+
+.q-label {
+  display: flex;
+  font-weight: 450;
+  margin-top: 60px;
+  white-space: nowrap;
+}
+
+.q-label-require {
+  color: red;
+  margin-left: -9px;
+  margin-right: 5px;
+  width: 5px;
+}
+
+.q-container textarea {
+  margin: 15px 0px;
+  width: calc(100% - 24px);
+  height: 6%;
+  background-color: #eaedef;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+}
+
+.q-container button {
+  width: 100%;
+  height: 56px;
+  border: none;
+  background-color: #4b75f3;
+  border-radius: 5px;
+  color: white;
+  font-size: larger;
+}
+.q-footer-box {
+  display: flex;
+  width: 100%;
+  height: 74px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.q-footer {
+  background: url(./footer.PNG);
+  background-size: 100% 100%;
+  height: 100%;
+  width: 211px;
+}
+
+.q-success-box {
+  display: flex;
+  justify-content: center;
+  height: 90%;
+  align-items: center;
+}
+.q-success {
+  background: url(./success.PNG);
+  background-size: 100% 100%;
+  height: 140px;
+  width: 180px;
 }
 
 #menu {
-    display: none;
-    background: url(./main_menu.png);
-    background-size: 100% 100%;
-    width: 50%;
-    height: 40vh;
-    position: absolute;
-    top: 6%;
-    left: 46%;
-    box-shadow: 0px 0px 26px 6px #ccc;
-    border-radius: 10px;
+  display: none;
+  background: url(./main_menu.png);
+  background-size: 100% 100%;
+  width: 50%;
+  height: 40vh;
+  position: absolute;
+  top: 6%;
+  left: 46%;
+  box-shadow: 0px 0px 26px 6px #ccc;
+  border-radius: 10px;
 }
 
 #bg {
-    background: url(./main.png); 
-    background-size: 100% 100%;
+  background: url(./main.png);
+  background-size: 100% 100%;
 }
 
 .full {
-    width: 100%;
-    height: 97vh;
+  width: 100%;
+  height: 97vh;
 }
 
 .hidden {
-    display: none;
+  display: none;
+}
+
+/* The radio */
+.q-radio-box {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  margin-top: 12px;
+  margin-left: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.q-radio-box input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.q-checkmark {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 14px;
+  width: 14px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.q-radio-box:hover input ~ .q-checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.q-radio-box input:checked ~ .q-checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.q-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.q-radio-box input:checked ~ .q-checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.q-radio-box .q-checkmark:after {
+  top: 4px;
+  left: 4px;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: white;
 }
