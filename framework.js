@@ -51,8 +51,12 @@ function show(page) {
 
   video.addEventListener("canplay", paintToCanvas);
   pages.mainPageMenu.addEventListener("click", function (e) {
-    show(pages.cameraPage);
-    getVideo();
+    try {
+      show(pages.cameraPage);
+      getVideo();
+    } catch (err) {
+      alert(err)
+    }
   });
 
   canvas.addEventListener("click", function (e) {
