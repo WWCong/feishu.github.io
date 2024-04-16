@@ -56,6 +56,15 @@ function show(page) {
   });
 
   canvas.addEventListener("click", function (e) {
+    for (let v of document.querySelectorAll("[name=receive-kind]")) {
+      v.checked = false
+    }
+    for (let v of document.querySelectorAll("[name=receive-cnt]")) {
+      v.checked = false
+    }
+    for (let v of document.querySelectorAll("textarea")) {
+      v.value = ''
+    }
     show(pages.qestionPage);
   });
 
