@@ -8,6 +8,21 @@ const pages = {
 const submitBtn = document.querySelector(".q-submit");
 const doneBtn = document.querySelector(".q-done");
 
+(function () {
+  var old = console.log;
+  var logger = document.getElementById('log');
+  console.log = function (...message) {
+    for (let msg of message) {
+      if (typeof msg == 'object') {
+          logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(msg) : msg) + '<br />';
+      } else {
+          logger.innerHTML += msg + '<br />';
+      }
+    }
+    old(...message)
+  }
+})();
+
 function show(page) {
   for (let key in pages) {
     if (key === page || page === pages[key]) {
