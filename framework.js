@@ -16,11 +16,9 @@ function show(page) {
       pages[key].style.display = "none";
     }
   }
-  video.pause();
 }
 
 (function () {
-  // show(pages.cameraPage);
   pages.mainPage.addEventListener("click", function (e) {
     let width = 1178,
       height = 2375;
