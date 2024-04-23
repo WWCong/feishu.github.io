@@ -1,14 +1,8 @@
-const video = document.querySelector('.player');
-const canvas = document.querySelector('.photo');
-const ctx = canvas.getContext('2d');
+var video = null;
+var canvas = null;
+var ctx = null;
 // const strip = document.querySelector('.strip');
 // const snap = document.querySelector('.snap');
-
-// IOS的浏览器要特殊设置，才能播放摄像头
-// Fix for iOS Safari from https://leemartin.dev/hello-webrtc-on-safari-11-e8bcb5335295
-video.setAttribute('autoplay', '');
-video.setAttribute('muted', '');
-video.setAttribute('playsinline', '')
 
 const constraints = {
   audio: false,
@@ -21,13 +15,13 @@ function getVideo() {
   navigator.mediaDevices.getUserMedia(constraints)
     .then(localMediaStream => {
       console.log(localMediaStream);
-    
-//  DEPRECIATION : 
-//       The following has been depreceated by major browsers as of Chrome and Firefox.
-//       video.src = window.URL.createObjectURL(localMediaStream);
-//       Please refer to these:
-//       Deprecated  - https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
-//       Newer Syntax - https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/srcObject
+
+      //  DEPRECIATION : 
+      //       The following has been depreceated by major browsers as of Chrome and Firefox.
+      //       video.src = window.URL.createObjectURL(localMediaStream);
+      //       Please refer to these:
+      //       Deprecated  - https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
+      //       Newer Syntax - https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/srcObject
       console.dir(video);
       if ('srcObject' in video) {
         video.srcObject = localMediaStream;

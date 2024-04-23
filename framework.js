@@ -1,27 +1,44 @@
-const pages = {
-  mainPage: document.querySelector("div#main_page"),
-  mainPageMenu: document.querySelector("div#menu"),
-  cameraPage: document.querySelector("div#camera_page"),
-  qestionPage: document.querySelector("div#quesionnaire"),
-  donePage: document.querySelector("div#quesionnaire-done"),
-};
-const submitBtn = document.querySelector(".q-submit");
-const doneBtn = document.querySelector(".q-done");
+const pages = {};
 
-(function () {
+var submitBtn = null;
+var doneBtn = null;
+
+$(document).ready(function () {
+  replaceLogger()
+
+  pages.mainPage = document.querySelector("div#main_page");
+  pages.mainPageMenu = document.querySelector("div#menu");
+  pages.cameraPage = document.querySelector("div#camera_page");
+  pages.qestionPage = document.querySelector("div#quesionnaire");
+  pages.donePage = document.querySelector("div#quesionnaire-done");
+  submitBtn = document.querySelector(".q-submit");
+  doneBtn = document.querySelector(".q-done");
+  video = document.querySelector('.player');
+  canvas = document.querySelector('.photo');
+  ctx = canvas.getContext('2d');
+  // IOS的浏览器要特殊设置，才能播放摄像头
+  // Fix for iOS Safari from https://leemartin.dev/hello-webrtc-on-safari-11-e8bcb5335295
+  video.setAttribute('autoplay', '');
+  video.setAttribute('muted', '');
+  video.setAttribute('playsinline', '')
+
+  initMainPage();
+})
+
+function replaceLogger() {
   var old = console.log;
   var logger = document.getElementById('log');
   console.log = function (...message) {
     for (let msg of message) {
       if (typeof msg == 'object') {
-          logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(msg) : msg) + '<br />';
+        logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(msg) : msg) + '<br />';
       } else {
-          logger.innerHTML += msg + '<br />';
+        logger.innerHTML += msg + '<br />';
       }
     }
     old(...message)
   }
-})();
+}
 
 function show(page) {
   for (let key in pages) {
@@ -33,7 +50,7 @@ function show(page) {
   }
 }
 
-(function () {
+function initMainPage() {
   pages.mainPage.addEventListener("click", function (e) {
     let width = 1178,
       height = 2375;
@@ -92,7 +109,7 @@ function show(page) {
   doneBtn.addEventListener("click", function (e) {
     show(pages.mainPage);
   });
-})();
+}
 
 // 1178 2375
 // 1083 87 33
