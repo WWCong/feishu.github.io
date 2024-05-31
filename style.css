@@ -81,7 +81,7 @@ body {
 .q-success-box {
   display: flex;
   justify-content: center;
-  height: 90%;
+  height: 80%;
   align-items: center;
 }
 .q-success {
